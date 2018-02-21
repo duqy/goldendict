@@ -1,0 +1,4 @@
+goldendict configuration
+
+[[goldendict.png]]
+
