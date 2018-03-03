@@ -1,163 +1,50 @@
-#.dsl_headwords
-#{
-#  white-space: nowrap;
-#}
-#.gddictname
-#{
-#  width: 50%;
-#  white-space: nowrap;
-#  text-overflow: ellipsis;
-#  overflow: hidden;
-#  display: block;
-#}
+/* 拉近 词典名称条 之间的距离。如果太近，就会重叠。 */
+.gdarticle { margin-top: .3rem; margin-bottom: 0; }
 
-body
-{
-  /*line-height: 80%;*/
-  margin-top: 1px;
-  margin-right: 3px;
-  margin-left:  2px;
-  margin-bottom: 3px;
-  background: white;
-  font-family: "Lucida Sans Unicode", Tahoma, Verdana, sans-serif;
-}
-/*
-  font-family: Tahoma, Verdana, "Lucida Sans Unicode", sans-serif, TahomaPlus, Segoe UI, Palatino Linotype, Arial Unicode MS;
-Microsoft YaHei UI, Tahoma, Verdana, "Lucida Sans Unicode", sans-serif
-TahomaPlus, Segoe UI, Palatino Linotype, Arial Unicode MS
-*/
-
-.gdarticle 
-{ 
-  margin-top: 0.1em;
-  margin-bottom: 0.4em;
-  padding: 5px;
-  border: 1px solid #d0dde2;
-  border-radius: 0px;
-  font-family: "Microsoft Yahei"!important;  
-}
-/*Arial, "Microsoft Yahei", Times New Roman*/
- 
-.gdactivearticle 
-{ 
-  border: 1px solid #3399FF;
-} 
-
-.gdarticleseparator + script + .gdactivearticle .gddictname
-{
-  border-top: 1px solid #3399FF;
+/* 隐藏 词典名称 外部容器的蓝色背景和边框 */
+.gddictname {
+font-size: .625rem;
+margin: -.0625rem 0;
+padding-left: 0;
+vertical-align: bottom;
+border-width: 0;
+background-color: transparent;
 }
 
-.gdarticleseparator 
-{ 
-  display: none; 
+/* 加粗 词典名称 文字的下边框 */
+.gddicttitle {
+position: relative;
+top: .01rem;
+padding-bottom: .0625rem;
+color: gray;
+border-bottom: .23rem solid gray;
 }
 
-.gddictname 
-{
-  font-size: 12px;
-  font-weight: normal;
-  float: right;
-  border: 0px;
-  border-top-right-radius: 0px;
-  border-bottom-left-radius: 0px;
-  margin: -6px;
-  margin-bottom: 5px;
-  margin-left: 2px;
-  padding-right: 0.4em;
-  color: #4480f8;
-  background: #E0E8F0;
+/* 隐藏 词典图标 和 “来自于……” */
+.gddicticon,.gdfromprefix { display: none; }
 
-  -webkit-user-select: none;
-  user-select: none;
-  cursor: default;
-} 
-
-.gdactivearticle .gddictname
-{
-  font-size: 13px;
-  font-weight: normal;
-  margin: -6px;
-  margin-bottom: 5px;
-  margin-left: 2px;
-  
-  float: right;
-  border: 1px solid #3399FF;
-  color: #0066cc;
-  background: #deecf8;
+/* 隐藏 右侧箭头，调整尺寸、边框 */
+.gdcollapseicon,.gdexpandicon {
+position: relative;
+top: .2745rem;
+/* w:h = 1:1 */
+width: .645rem;
+/* w:h = 2:1 */
+/* width: 1.45rem; */
+height: .475rem;
+border: .08rem solid gray;
+background-color: transparent;
+background-image: none;
 }
 
-.gddicticon
-{
-  display: inline;
-  vertical-align: text-bottom;
-  float: right;
-  padding-right: 0em;
-  padding-left: 0.3em;
-}
+/* 展开、鼠标悬停的展开、折叠、鼠标悬停的折叠，共四种样式 */
+.gdexpandicon { background-color: gray; }
+.gdexpandicon:hover { border-color: black; background-color: black; background-image: none; }
+.gdcollapseicon { border-bottom-width: .25rem; }
+.gdcollapseicon:hover { border-color: black; background-image: none; }
 
-/* The first headword in a (possibly) multi-headword DSL article */
-.gdarticlebody > span:first-child .dsl_headwords,
-.gdarticlebody > h3:first-child
-{
-  margin-top: -3px;
-  display: inline-block;
-}
+/* 分割线 */
+.gddictnamebodyseparator { display: block; margin-bottom: -.0625rem; border-top: .08rem solid gray; }
 
-.gdspellsuggestion
-{
-  /* Add some vertical space before the article */
-  margin-top: 1.5em;
-}
-
-.dsl_ex
-{
-  color: steelblue;
-}
-
-.dsl_stress
-{
-  color: darkblue;
-}
-
-.dsl_stress_without_accent {
-  display:inline;
-}
-
-.dsl_stress_with_accent {
-  display: none;
-}
-
-.dsl_p .dsl_ex .dsl_lang
-{
-  color: green;
-}
-
-::selection {
-  background:#cc0000;
-	color:#fff;
-}
-
-code::selection {
-	background: #333333;
-}
-
-.dsl_s_wav img, .lsa_play img, .forvo_play img[alt="Play"] {
-    display: none;
-}
-
-.dsl_s_wav a, .lsa_play td:nth-of-type(1) a, .forvo_play td:nth-of-type(1) a {
-    display: inline-block;
-    width: 17px;
-    height: 16px;
-    background: url('file:///control_play_lingvo.png') no-repeat center;
-    vertical-align: text-bottom;
-    -webkit-user-select: none;
-    user-select: none;
-}
-
-/*牛津高阶英汉简体8设置字体，不起作用*/
-#gdfrom-0849fa6d3dac57c401953d5d622244df {
-font-family: "Microsoft Yahei"!important;
-}
-/*Arial, "Microsoft Yahei", Times New Roman*/
+/* 拉近 mdx 和 dsl 词典内容 与它们的 词典名称条 距离 */
+.mdict,.dsl_article { margin-top: .625rem; }

@@ -1,8 +1,18 @@
+QToolTip, /* 按钮或链接的提示信息 */
+ArticleView #searchText, /* 按 Ctrl+F 后的搜索框 */
+MainStatusBar #text, /* 右下角的提示信息 */
+ScanPopup #translateLine, /* 弹出窗口的搜索框 */
+MainWindow #translateLine, /* 主窗口的搜索框 */
+MainWindow #wordList, /* 搜索框下方的单词列表 */
+MainWindow #dictsPane #dictsList, /* 查到单词的词典列表 */
+MainWindow #historyPane #historyList, /* 历史面板的单词列表 */
+MainWindow #favoritesPane #favoritesTree /* 收藏面板的单词列表 */
+{ font-size: 13px; }
+
 /* WARNING: hides all separators! */
 #navToolbar::separator {
   width: 0px;
 }
-
 
 /* Another way to hide specific separators */
 #navToolbar #beforeOptionsSeparator, #navToolbar #beforeScanPopupSeparator, #navToolbar #afterScanPopupSeparator, #navToolbar #separatorBeforeZoom, #navToolbar #separatorBeforeSave {
@@ -60,46 +70,4 @@ ScanPopup #sendWordButtonXX
   width: 0px;
   height: 0px;
   margin: -4px;
-}
-
-/*
-#historyList {
-  font-weight: bold;
-}
-
-#historyList::item {
-  background: black;
-  color: yellow;
-}
-
-#historyList::item:selected {
-  background: gray;
-}
-*/
-
-/* 
-#historyList::item:alternate {
-  background: #EEEEEE;
-  color: black;
-}
-*/
-
-/*
-ScanPopup
-{
-  min-width:50px;
-}
-*/
-
-/*
-MainWindow #dictsPane #dictsList 
-{
-  min-width:200px !important;
-}
-*/
-
-/*
-MainWindow #ArticleView 
-{ 
-    min-width: 50px; 
 }
